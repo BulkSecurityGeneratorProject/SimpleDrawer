@@ -28,7 +28,7 @@ public class Application {
     private Environment env;
 
     /**
-     * Initializes dido.
+     * Initializes App.
      * <p/>
      * Spring profiles can be configured with a program arguments --spring.profiles.active=your-active-profile
      * <p/>

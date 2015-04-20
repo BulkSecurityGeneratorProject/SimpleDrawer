@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="LaneDrawer:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="LaneDrawer-1.0.0-ALPHA.war">
+      <element id="artifact" artifact-name="LaneDrawer:war exploded" />
+    </root>
+  </artifact>
+</component>

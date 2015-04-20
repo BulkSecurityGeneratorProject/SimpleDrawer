@@ -40,7 +40,7 @@ public class DatabaseConfiguration implements EnvironmentAware {
     }
 
     @Bean(destroyMethod = "shutdown")
-    public DataSource didoDataSource(
+    public DataSource drawerDataSource(
 
     ) {
         log.debug("Configuring Datasource");
@@ -52,7 +52,7 @@ public class DatabaseConfiguration implements EnvironmentAware {
             throw new ApplicationContextException("Database connection pool is not configured correctly");
         }
         HikariConfig config = new HikariConfig();
-        config.setPoolName("DidoAppHikariPool");//To allow for multiple hikari apps on same tomcat
+        config.setPoolName("LaneDrawingAppConnectionPool");//To allow for multiple hikari apps on same tomcat
         config.setDataSourceClassName(propertyResolver.getProperty("dataSourceClassName"));
         if (propertyResolver.getProperty("url") == null || "".equals(propertyResolver.getProperty("url"))) {
             config.addDataSourceProperty("databaseName", propertyResolver.getProperty("databaseName"));
