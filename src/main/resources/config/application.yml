@@ -1,0 +1,32 @@
+async:
+    corePoolSize: 2
+    maxPoolSize: 50
+    queueCapacity: 10000
+
+spring:
+    mail:
+        host: localhost
+        port: 25
+        user:
+        password:
+        protocol: smtp
+        tls: false
+        auth: false
+        from: dido@localhost
+
+    messageSource:
+        cacheSeconds: 1
+
+authentication:
+    xauth:
+        secret: myXAuthSecret
+        # Token is valid 30 minutes
+        tokenValidityInSeconds: 1800
+
+swagger:
+    title: dido API
+    description: dido - Social Platform with a twist!
+    termsOfServiceUrl:
+    contact:
+    license:
+    licenseUrl:

@@ -1,0 +1,14 @@
+<div class="row">
+    <h2 class="center" style="text-align: center;">All Didos</h2>
+</div>
+<ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options" events="map.events">
+    <ui-gmap-markers models="markers" events="'events'" coords="'coords'" icon ="'icon'"
+                     doCluster="true" title="'title'" idKey="'idKey'" fit="true" options="'options'" size="'markerSize'">
+    </ui-gmap-markers>
+</ui-gmap-google-map>
+
+<script type="text/ng-template" id="saveDido.html">
+    <div class="modal-header">
+        <h3 class="modal-title">Saved!</h3>
+    </div>
+</script>

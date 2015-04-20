@@ -1,0 +1,33 @@
+<div>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <h1>Phone Number Verification</h1>
+            <div class="form-group">
+                <div class="alert alert-success" ng-show="success">
+                    <strong>Your phone number has been validated.</strong> Please authenticate.
+                </div>
+
+                <div class="alert alert-danger" ng-show="error">
+                    <strong>Your phone number could not be validated with that verification code.</strong> Please try again later.
+                </div>
+            </div>
+
+            <form name="form" role="form" novalidate ng-submit="verify()">
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input max="12" size="12" class="form-control" name="phoneNumber" placeholder="e.g 19502941029"
+                           ng-model="Form.phoneNumber" ng-minlength=5 ng-maxlength=100 required> {{phoneNumber}}
+
+                </div>
+                <div class="form-group">
+                    <label>Verification Code</label>
+                    <input type="password" max="4" size="4" class="form-control" name="verificationCode" placeholder="****"
+                           ng-model="Form.verificationCode" ng-minlength=0 ng-maxlength=100 required>{{verificationCode}}
+
+                </div>
+                <button type="submit" class="btn btn-primary">Verify</button>
+            </form>
+            <p></p>
+        </div>
+    </div>
+</div>

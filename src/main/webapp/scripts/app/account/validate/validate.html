@@ -1,0 +1,29 @@
+<div>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <h1>Phone Number Validation</h1>
+
+            <div class="form-group">
+                <div class="alert alert-success" ng-show="success">
+                    <strong>A Verification Code has been sent to the number: [{{Form.phoneNumber}}].</strong> Please
+                    check.
+                </div>
+
+                <div class="alert alert-danger" ng-show="error">
+                    <strong>Unable to send verification code.</strong> Please try again later.
+                </div>
+            </div>
+
+            <form name="form" role="form" novalidate ng-submit="sendCode()">
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input max="12" size="12" class="form-control" name="phoneNumber" placeholder="e.g 19502941029"
+                           ng-model="Form.phoneNumber" ng-minlength=5 ng-maxlength=100 required>
+
+                </div>
+                <button type="submit" ng-disabled="success" class="btn btn-primary">Send Code</button>
+            </form>
+            <p></p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+<div class="row">
+    <div class="col-md-4">
+        <button class="btn btn-lg btn-danger" ng-click="addPoint()"> Add a new Point</button>
+
+        <h2>Real-time user Locations</h2>
+
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>User</th>
+                    <th>lat</th>
+                    <th>Long</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="location in locations">
+                    <td>{{location.userLogin}}</td>
+                    <td>{{location.location.latitude}}</td>
+                    <td>{{location.location.longitude}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <ui-gmap-google-map center='map.center' zoom='map.zoom' events="map.events" click="map.events">
+            <!-- Manual Search Area -->
+            <ui-gmap-polygon static="true" ng-repeat="p in polygons track by p.id" path="p.path" stroke="p.stroke"
+                             visible="p.visible"
+                             geodesic="p.geodesic" fill="p.fill" fit="false" editable="p.editable"
+                             draggable="false" events="p.events">
+            </ui-gmap-polygon>
+            <!-- Polyline representing main user-->
+            <ui-gmap-polyline ng-repeat="p in polylines" path="p.path" stroke="p.stroke" visible='p.visible'
+                              geodesic='p.geodesic' fit="false" editable="p.editable" draggable="p.draggable"
+                              icons='p.icons' clickable="p.clickable"></ui-gmap-polyline>
+            <ui-gmap-polyline ng-repeat="p in polylines2" path="p.path" stroke="p.stroke" visible='p.visible'
+                              geodesic='p.geodesic' fit="false" editable="p.editable" draggable="p.draggable"
+                              icons='p.icons' clickable="p.clickable">
+            </ui-gmap-polyline>
+            <!--<ui-gmap-polylines models="userTracks" path="'geotracks'"></ui-gmap-polylines>-->
+        </ui-gmap-google-map>
+    </div>
+</div>
