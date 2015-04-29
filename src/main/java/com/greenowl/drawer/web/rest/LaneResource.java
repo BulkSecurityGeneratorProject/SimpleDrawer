@@ -18,6 +18,7 @@ import java.util.List;
 import java.util.Set;
 
 @RestController
+@RequestMapping("/api")
 public class LaneResource {
 
     @Inject
@@ -71,11 +72,11 @@ public class LaneResource {
     /**
      * DELETE /street -> remove street from data store.
      */
-    @RequestMapping(value = "/street",
+    @RequestMapping(value = "/lane/{id}",
             method = RequestMethod.DELETE,
             produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> delete(@RequestBody final CreateStreetDTO dto) {
-        Lane lane = laneRepository.findOne(dto.getId());
+    public ResponseEntity<?> delete(@PathVariable("id") final Long id) {
+        Lane lane = laneRepository.findOne(id);
         if (lane == null) {
             return new ResponseEntity<Object>(HttpStatus.NOT_FOUND);
         }

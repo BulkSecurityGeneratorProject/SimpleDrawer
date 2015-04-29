@@ -18,7 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.inject.Inject;
 import java.util.List;
 
-@RestController("/api")
+@RestController
+@RequestMapping("/api")
 public class StreetResource {
 
     private static final Logger LOG = LoggerFactory.getLogger(StreetResource.class);
