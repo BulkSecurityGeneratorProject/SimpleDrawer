@@ -17,6 +17,23 @@
                         <span>Home</span>
                     </a>
                 </li>
+
+                <li ng-class="{active: $state.includes('tools')}" class="dropdown pointer">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="">
+                                <span>
+                                    <span class="glyphicon glyphicon-wrench"></span>
+                                    <span class="hidden-tablet">
+                                        Tools
+                                    </span>
+                                    <b class="caret"></b>
+                                </span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li ui-sref-active="active"><a ui-sref="newLane"><span
+                                class="glyphicon glyphicon-plus-sign"></span>
+                            &#xA0;<span>Map A New Lane</span></a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>

@@ -3,16 +3,16 @@
 angular.module('drawerApp')
     .config(function ($stateProvider) {
         $stateProvider
-            .state('home', {
-                parent: 'site',
-                url: '/',
+            .state('newLane', {
+                parent: 'tools',
+                url: '/tools/map/lane/new',
                 data: {
                     roles: []
                 },
                 views: {
                     'content@': {
-                        templateUrl: 'scripts/app/main/main.html',
-                        controller: 'MainController'
+                        templateUrl: 'scripts/app/tools/map/newLane.html',
+                        controller: 'NewLaneController'
                     }
                 }
             });

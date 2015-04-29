@@ -1,8 +1,0 @@
-{
-  "activate": {
-    "title": "Validate",
-    "messages": {
-      "status": "Sent a verification code."
-    }
-  }
-}

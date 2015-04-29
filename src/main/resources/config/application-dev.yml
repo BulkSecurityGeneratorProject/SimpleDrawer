@@ -4,12 +4,12 @@ server:
 spring:
     profiles:
         active: dev
-    
+
     datasource:
         dataSourceClassName: com.mysql.jdbc.jdbc2.optional.MysqlDataSource
         url: jdbc:mysql://54.204.15.120:3306/StreetLaneData?autoConnect=true
-        databaseName: 
-        serverName: 
+        databaseName:
+        serverName:
         username: root
         password: stagGOWL123
         cachePrepStmts: true
