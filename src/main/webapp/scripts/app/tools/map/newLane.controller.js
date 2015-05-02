@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('drawerApp')
-    .controller('NewLaneController', function ($scope, $log) {
+    .controller('NewLaneController', function ($scope, $http, $log) {
         $scope.loadingMap = false;//flag used for loading the map
         var BASE_ICON_PATH = "/assets/icons/";
         $scope.iconMap = ["yellow_icon.png",
@@ -28,8 +28,8 @@ angular.module('drawerApp')
         $scope.mapEvents = {
             click: function (mapModel, eventName, originalEventArgs) {
                 var e = originalEventArgs[0];
-                var lat = e.latLng.k;
-                var log = e.latLng.D;
+                var lat = e.latLng.lat(); //event latitude
+                var log = e.latLng.lng(); //event longitude
                 var msg = "Geopoint: [" + lat + ", " + log + "]";
                 $scope.pushMarker(lat, log, msg, $scope.laneLength++);
             }
@@ -44,10 +44,16 @@ angular.module('drawerApp')
             }
         };
 
-
+        /**
+         * Push a marker into the maps marker objects.
+         * @param lat
+         * @param lng
+         * @param title
+         * @param id
+         */
         $scope.pushMarker = function (lat, lng, title, id) {
             $log.info("Pushing Marker to map with coords: [" + lat + ", " + lng + "]");
-            var m = {
+            $scope.markers.push({
                 idKey: id,
                 coords: {
                     latitude: lat,
@@ -61,12 +67,13 @@ angular.module('drawerApp')
                     },
                     draggable: true
                 }
-            };
-            $scope.markers.push(m);
+            });
         };
+
         $scope.markers = [];
 
         $scope.reDrawMap = function(){
+            console.log("Redrawing map!");
             $scope.map = {
                 center: {
                     latitude: 40.1451,
@@ -82,6 +89,38 @@ angular.module('drawerApp')
             };
         };
 
+
+        $scope.save = function(){
+            var obj = {};
+
+            obj.streetName = $scope.streetName;
+            obj.points = [];
+
+            for(var key in $scope.markers){
+                console.log($scope.markers[key]);
+                console.log($scope.markers[key].coords.latitude);
+                console.log($scope.markers[key].coords.longitude);
+                var p = {};
+                p.lat = $scope.markers[key].coords.latitude;
+                p.lng = $scope.markers[key].coords.longitude;
+                obj.points.push(p);
+            }
+
+
+            $http.post('/api/lane/', obj)
+                .success(function (data, status, headers, config) {
+                    // this isn't happening:
+                    alert("Saved!");
+                })  //<-- damn ")"
+                .error(function (data, status, headers, config) {
+                    // this isn't happening:
+                })
+        };
+
         $scope.reDrawMap();
+
+        $scope.getStreets();
+
+
 
     });

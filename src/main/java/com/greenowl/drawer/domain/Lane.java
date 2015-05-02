@@ -1,6 +1,8 @@
 package com.greenowl.drawer.domain;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 /**
@@ -16,15 +18,21 @@ public class Lane {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "associated_street", referencedColumnName = "id")
-    private Street associatedStreet; //The street this Lane belongs to
+    @NotNull
+    @Size(min = 1, max = 45)
+    @Column(length = 45)
+    private String streetName; //The street this Lane belongs to
 
-    @OneToMany(mappedBy = "associatedLane", targetEntity = GeoPoint.class)
+    @Size(min = 0, max = 10)
+    @Column
+    private String direction;
+
+    @OneToMany(mappedBy = "associatedLane", targetEntity = GeoPoint.class, fetch = FetchType.LAZY)
     private List<GeoPoint> points; //The points this Lane is composed of
 
-    public Lane(Street associatedStreet, List<GeoPoint> points) {
-        this.associatedStreet = associatedStreet;
+    public Lane(String streetName, String direction, List<GeoPoint> points) {
+        this.streetName = streetName;
+        this.direction = direction;
         this.points = points;
     }
 
@@ -36,14 +44,6 @@ public class Lane {
         this.id = id;
     }
 
-    public Street getAssociatedStreet() {
-        return associatedStreet;
-    }
-
-    public void setAssociatedStreet(Street associatedStreet) {
-        this.associatedStreet = associatedStreet;
-    }
-
     public List<GeoPoint> getPoints() {
         return points;
     }
@@ -51,6 +51,23 @@ public class Lane {
     public void setPoints(List<GeoPoint> points) {
         this.points = points;
     }
+
+    public String getStreetName() {
+        return streetName;
+    }
+
+    public void setStreetName(String streetName) {
+        this.streetName = streetName;
+    }
+
+    public String getDirection() {
+        return direction;
+    }
+
+    public void setDirection(String direction) {
+        this.direction = direction;
+    }
+
 
     @Override
     public boolean equals(Object o) {
@@ -60,8 +77,8 @@ public class Lane {
         Lane lane = (Lane) o;
 
         if (id != null ? !id.equals(lane.id) : lane.id != null) return false;
-        if (associatedStreet != null ? !associatedStreet.equals(lane.associatedStreet) : lane.associatedStreet != null)
-            return false;
+        if (streetName != null ? !streetName.equals(lane.streetName) : lane.streetName != null) return false;
+        if (direction != null ? !direction.equals(lane.direction) : lane.direction != null) return false;
         return !(points != null ? !points.equals(lane.points) : lane.points != null);
 
     }
@@ -69,7 +86,8 @@ public class Lane {
     @Override
     public int hashCode() {
         int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (associatedStreet != null ? associatedStreet.hashCode() : 0);
+        result = 31 * result + (streetName != null ? streetName.hashCode() : 0);
+        result = 31 * result + (direction != null ? direction.hashCode() : 0);
         result = 31 * result + (points != null ? points.hashCode() : 0);
         return result;
     }
@@ -78,8 +96,8 @@ public class Lane {
     public String toString() {
         return "Lane{" +
                 "id=" + id +
-                ", associatedStreet=" + associatedStreet +
-                ", points=" + points +
+                ", streetName='" + streetName + '\'' +
+                ", direction='" + direction + '\'' +
                 '}';
     }
 }

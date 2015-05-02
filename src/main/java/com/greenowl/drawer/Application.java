@@ -19,7 +19,7 @@ import java.net.UnknownHostException;
 import java.util.Arrays;
 
 @ComponentScan
-@EnableAutoConfiguration(exclude = {MetricFilterAutoConfiguration.class, MetricRepositoryAutoConfiguration.class})
+@EnableAutoConfiguration
 public class Application {
 
     private static final Logger log = LoggerFactory.getLogger(Application.class);

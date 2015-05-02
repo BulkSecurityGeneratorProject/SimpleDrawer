@@ -8,5 +8,6 @@
     <file url="file://$PROJECT_DIR$/src/main/webapp/assets/icons/red_icon.png" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/assets/icons/white_icon.png" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/assets/icons/yellow_icon.png" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/../../TrafficAlertTrunk/trunk/projects/ta_mobile_services/src/com/greenowl/servlet/SendPersonalizedNotificationServlet.java" charset="UTF-8" />
   </component>
 </project>

@@ -22,7 +22,7 @@ spring:
         database: MYSQL
         openInView: false
         show_sql: true
-        generate-ddl: false
+        generate-ddl: true
         hibernate:
             ddl-auto: none
             naming-strategy: org.hibernate.cfg.EJB3NamingStrategy

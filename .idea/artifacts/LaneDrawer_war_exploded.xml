@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="LaneDrawer:war exploded">
-    <output-path>$PROJECT_DIR$/target/LaneDrawer-1.0.0-ALPHA</output-path>
+    <output-path>$PROJECT_DIR$/target/LaneDrawer-1.6.9-ALPHA</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
@@ -46,10 +46,6 @@
           <element id="library" level="project" name="Maven: joda-time:joda-time:2.5" />
           <element id="library" level="project" name="Maven: joda-time:joda-time-hibernate:1.3" />
           <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.34" />
-          <element id="library" level="project" name="Maven: org.atmosphere:atmosphere-runtime-native:2.2.3" />
-          <element id="library" level="project" name="Maven: org.atmosphere:atmosphere-compat-jbossweb:2.0.1" />
-          <element id="library" level="project" name="Maven: org.atmosphere:atmosphere-compat-tomcat:2.0.1" />
-          <element id="library" level="project" name="Maven: org.atmosphere:atmosphere-compat-tomcat7:2.0.1" />
           <element id="library" level="project" name="Maven: org.hibernate:hibernate-envers:4.3.6.Final" />
           <element id="library" level="project" name="Maven: org.jboss.logging:jboss-logging:3.1.3.GA" />
           <element id="library" level="project" name="Maven: org.jboss.logging:jboss-logging-annotations:1.2.0.Beta1" />
@@ -93,9 +89,6 @@
           <element id="library" level="project" name="Maven: org.slf4j:log4j-over-slf4j:1.7.7" />
           <element id="library" level="project" name="Maven: ch.qos.logback:logback-classic:1.1.2" />
           <element id="library" level="project" name="Maven: ch.qos.logback:logback-core:1.1.2" />
-          <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-mail:1.2.0.RELEASE" />
-          <element id="library" level="project" name="Maven: com.sun.mail:javax.mail:1.5.2" />
-          <element id="library" level="project" name="Maven: javax.activation:activation:1.1" />
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-thymeleaf:1.2.0.RELEASE" />
           <element id="library" level="project" name="Maven: org.thymeleaf:thymeleaf-spring4:2.1.3.RELEASE" />
           <element id="library" level="project" name="Maven: org.thymeleaf:thymeleaf:2.1.3.RELEASE" />

@@ -12,7 +12,7 @@
 
     <groupId>com.greenowl.drawer</groupId>
     <artifactId>LaneDrawer</artifactId>
-    <version>1.0.0-ALPHA</version>
+    <version>1.6.9-ALPHA</version>
     <packaging>war</packaging>
 
     <name>LaneDrawingApp</name>
